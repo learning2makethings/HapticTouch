@@ -7,14 +7,31 @@
 //
 
 import UIKit
+import AudioToolbox
+
+extension UIDevice {
+    var modelName: String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        return identifier
+    }
+}
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var hapticFeedbackButton: UIButton!
     @IBOutlet weak var bpmSliderControl: UISlider!
     @IBOutlet weak var bpmNumberLabel: UILabel!
+    
+    // check if device is an iPhone 6 or iPhone 6s (no support for impact generator)
+    let hapticFunction = (UIDevice.current.modelName.starts(with: "iPhone8") ? timerActionFallback : timerAction)
 
-    let impactGenerator = UIImpactFeedbackGenerator.init(style: .heavy)
+    static let impactGenerator = UIImpactFeedbackGenerator.init(style: .heavy)
     var metronomeTimer = Timer()
     var metronomeRunningStatus = false {
         didSet {
@@ -41,11 +58,19 @@ class ViewController: UIViewController {
             stopMetronomeTapping()
         }
     }
+    
+    static func timerAction() {
+        impactGenerator.impactOccurred()
+    }
+    
+    static func timerActionFallback() {
+        AudioServicesPlaySystemSound(1520)
+    }
 
     func startMetronomeTapping() {
         let metronomeTimeInterval = Double(60.0 / bpmSliderControl.value)
         metronomeTimer = Timer.scheduledTimer(withTimeInterval: metronomeTimeInterval, repeats: true) { timer in
-            self.impactGenerator.impactOccurred()
+            self.hapticFunction()
         }
         metronomeTimer.fire()
     }
