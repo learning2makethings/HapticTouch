@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HapticTouch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="40" maxValue="218" minimumValueImage="minus_button" maximumValueImage="plus_button" translatesAutoresizingMaskIntoConstraints="NO" id="Ofh-OR-39W">
+                                <rect key="frame" x="18" y="782" width="378" height="31"/>
+                                <connections>
+                                    <action selector="bpmSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="UEI-ee-0Gt"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGw-It-3WT">
+                                <rect key="frame" x="5" y="827" width="404" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="hapticFeedbackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A76-pr-Lli"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OMc-CD-Xc5">
+                                <rect key="frame" x="20" y="720" width="100.5" height="42"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvh-65-NwH">
+                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BPM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWA-Yb-asR">
+                                        <rect key="frame" x="64.5" y="0.0" width="36" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nWA-Yb-asR" firstAttribute="bottom" secondItem="uvh-65-NwH" secondAttribute="bottom" id="Hck-Iq-vNm"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Uee-0j-aNJ" firstAttribute="bottom" secondItem="GGw-It-3WT" secondAttribute="bottom" constant="5" id="0lZ-gY-V57"/>
+                            <constraint firstItem="Ofh-OR-39W" firstAttribute="top" secondItem="OMc-CD-Xc5" secondAttribute="bottom" constant="20" id="EBR-dT-iWH"/>
+                            <constraint firstItem="Ofh-OR-39W" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="20" id="LK3-xg-Ep8"/>
+                            <constraint firstItem="Uee-0j-aNJ" firstAttribute="trailing" secondItem="GGw-It-3WT" secondAttribute="trailing" constant="5" id="Poc-Y1-IYZ"/>
+                            <constraint firstItem="Uee-0j-aNJ" firstAttribute="trailing" secondItem="Ofh-OR-39W" secondAttribute="trailing" constant="20" id="TI5-W0-yw4"/>
+                            <constraint firstItem="GGw-It-3WT" firstAttribute="top" secondItem="Ofh-OR-39W" secondAttribute="bottom" constant="15" id="cXy-cE-TnM"/>
+                            <constraint firstItem="GGw-It-3WT" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="5" id="qV9-Tp-27S"/>
+                            <constraint firstItem="OMc-CD-Xc5" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="20" id="tvY-7n-fsX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="bpmNumberLabel" destination="uvh-65-NwH" id="Pu5-VR-Zk1"/>
+                        <outlet property="bpmSliderControl" destination="Ofh-OR-39W" id="pcc-ta-Y5s"/>
+                        <outlet property="hapticFeedbackButton" destination="GGw-It-3WT" id="EBm-pW-rRX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="minus_button" width="14" height="4"/>
+        <image name="plus_button" width="14" height="14"/>
+    </resources>
+</document>
