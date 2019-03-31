@@ -29,9 +29,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var bpmNumberLabel: UILabel!
     
     // check if device is an iPhone 6 or iPhone 6s (no support for impact generator)
-    let hapticFunction = (UIDevice.current.modelName.starts(with: "iPhone8") ? timerActionFallback : timerAction)
-
-    static let impactGenerator = UIImpactFeedbackGenerator.init(style: .heavy)
+    // iPhone 6 models begin with string iPhone8
+    lazy var hapticFunction = (UIDevice.current.modelName.starts(with: "iPhone8") ? timerActionFallback : timerAction)
+    let impactGenerator = UIImpactFeedbackGenerator.init(style: .heavy)
     var metronomeTimer = Timer()
     var metronomeRunningStatus = false {
         didSet {
@@ -59,11 +59,11 @@ class ViewController: UIViewController {
         }
     }
     
-    static func timerAction() {
+    func timerAction() {
         impactGenerator.impactOccurred()
     }
     
-    static func timerActionFallback() {
+    func timerActionFallback() {
         AudioServicesPlaySystemSound(1520)
     }
 
