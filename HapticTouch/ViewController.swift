@@ -70,6 +70,7 @@ class ViewController: UIViewController {
     func startMetronomeTapping() {
         let metronomeTimeInterval = Double(60.0 / bpmSliderControl.value)
         metronomeTimer = Timer.scheduledTimer(withTimeInterval: metronomeTimeInterval, repeats: true) { timer in
+            playSound()
             self.hapticFunction()
         }
         metronomeTimer.fire()
