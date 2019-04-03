@@ -30,12 +30,11 @@ class ViewController: UIViewController {
     
     // check if device is an iPhone 6 or iPhone 6s (no support for impact generator)
     // iPhone 6 models begin with string iPhone8
-    lazy var hapticFunction = (UIDevice.current.modelName.starts(with: "iPhone8") ? timerActionFallback : timerAction)
-    let impactGenerator = UIImpactFeedbackGenerator.init(style: .heavy)
-    var metronomeTimer = Timer()
+    let metronome = Metronome(bpm: 60, supportsImpactGenerator: !UIDevice.current.modelName.starts(with: "iPhone8"))
+    
     var metronomeRunningStatus = false {
         didSet {
-            if metronomeRunningStatus == true {
+            if metronome.isRunning() == true {
                 hapticFeedbackButton.setTitle("Stop", for: .normal)
             } else {
                 hapticFeedbackButton.setTitle("Start", for: .normal)
@@ -46,45 +45,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        bpmNumberLabel.text = "\(Int(bpmSliderControl.value))"
+        let value = Int(bpmSliderControl.value)
+        bpmNumberLabel.text = "\(value)"
+        metronome.setBPM(to: value)
     }
 
     @IBAction func hapticFeedbackButton(_ sender: Any) {
-        metronomeRunningStatus.toggle()
-        switch metronomeRunningStatus {
-        case true:
-            startMetronomeTapping()
-        case false:
-            stopMetronomeTapping()
-        }
-    }
-    
-    func timerAction() {
-        impactGenerator.impactOccurred()
+        metronome.toggle()
+        metronomeRunningStatus = metronome.isRunning()
     }
     
     func timerActionFallback() {
         AudioServicesPlaySystemSound(1520)
     }
 
-    func startMetronomeTapping() {
-        let metronomeTimeInterval = Double(60.0 / bpmSliderControl.value)
-        metronomeTimer = Timer.scheduledTimer(withTimeInterval: metronomeTimeInterval, repeats: true) { timer in
-            playSound()
-            self.hapticFunction()
-        }
-        metronomeTimer.fire()
-    }
-
-    func stopMetronomeTapping() {
-         metronomeRunningStatus = false
-         metronomeTimer.invalidate()
-    }
-
     @IBAction func bpmSliderValueChanged(_ sender: UISlider) {
+        metronome.stop()
+        metronomeRunningStatus = false
+        
         let currentMetronomeSpeed = Int(sender.value)
         bpmNumberLabel.text = "\(currentMetronomeSpeed)"
-        stopMetronomeTapping()
+        metronome.setBPM(to: currentMetronomeSpeed)
+        
     }
 }
 

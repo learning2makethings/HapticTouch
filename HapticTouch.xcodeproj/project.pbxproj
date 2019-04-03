@@ -22,6 +22,7 @@
 		285F8556224E95DF00A14ED3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F8555224E95DF00A14ED3 /* NotificationController.swift */; };
 		285F8558224E95DF00A14ED3 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F8557224E95DF00A14ED3 /* ComplicationController.swift */; };
 		285F855A224E95E000A14ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285F8559224E95E000A14ED3 /* Assets.xcassets */; };
+		E21799A222545651004E77D8 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21799A122545651004E77D8 /* Metronome.swift */; };
 		E28A854C2253E08A00B4FE28 /* click1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28A854B2253E08A00B4FE28 /* click1.wav */; };
 		E28A854E2253EB0C00B4FE28 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28A854D2253EB0C00B4FE28 /* SoundPlayer.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		285F8559224E95E000A14ED3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		285F855B224E95E000A14ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285F855C224E95E000A14ED3 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		E21799A122545651004E77D8 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		E28A854B2253E08A00B4FE28 /* click1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click1.wav; sourceTree = "<group>"; };
 		E28A854D2253EB0C00B4FE28 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 				285F852A224E95DE00A14ED3 /* Assets.xcassets */,
 				285F852C224E95DE00A14ED3 /* LaunchScreen.storyboard */,
 				285F852F224E95DE00A14ED3 /* Info.plist */,
+				E21799A122545651004E77D8 /* Metronome.swift */,
 			);
 			path = HapticTouch;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21799A222545651004E77D8 /* Metronome.swift in Sources */,
 				285F8526224E95DB00A14ED3 /* ViewController.swift in Sources */,
 				E28A854E2253EB0C00B4FE28 /* SoundPlayer.swift in Sources */,
 				285F8524224E95DB00A14ED3 /* AppDelegate.swift in Sources */,
