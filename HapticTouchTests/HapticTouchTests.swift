@@ -22,7 +22,7 @@ class HapticTouchTests: XCTestCase {
     func testMetronome() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let m = Metronome(bpm: 60, supportsImpactGenerator: true)
+        var m = Metronome(bpm: 60, supportsImpactGenerator: true)
         
         XCTAssertEqual(60, m.bpm)
         XCTAssertFalse(m.isRunning(), "Metronome shouldn't be running on init")
@@ -57,6 +57,13 @@ class HapticTouchTests: XCTestCase {
         m.setBPM(to: 100)
         m.setBPM(to: -20)
         XCTAssertEqual(100, m.bpm, "Negative bpm aren't a thing")
+        
+        // on init, bpm should be anything above 0
+        m = Metronome(bpm: 0, supportsImpactGenerator: true)
+        XCTAssertGreaterThan(m.bpm, 0, "BPM shouldn't be set to 0 on init")
+        
+        m = Metronome(bpm: -20, supportsImpactGenerator: true)
+        XCTAssertGreaterThan(m.bpm, 0, "BPM shouldn't be negative on init")
     }
 
     func testPerformanceMetronome() {
