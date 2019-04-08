@@ -28,6 +28,9 @@ class MetronomeVC: UIViewController {
     @IBOutlet weak var bpmSliderControl: UISlider!
     @IBOutlet weak var bpmNumberLabel: UILabel!
     
+    let startString = NSLocalizedString("startMetronome", comment: "Start metronome")
+    let stopString = NSLocalizedString("stopMetronome", comment: "Stop metronome")
+    
     // check if device is an iPhone 6 or iPhone 6s (no support for impact generator)
     // iPhone 6 models begin with string iPhone8
     let metronome = Metronome(bpm: 60, supportsImpactGenerator: !UIDevice.current.modelName.starts(with: "iPhone8"))
@@ -35,9 +38,9 @@ class MetronomeVC: UIViewController {
     var metronomeRunningStatus = false {
         didSet {
             if metronome.isRunning() == true {
-                hapticFeedbackButton.setTitle("Stop", for: .normal)
+                hapticFeedbackButton.setTitle(stopString, for: .normal)
             } else {
-                hapticFeedbackButton.setTitle("Start", for: .normal)
+                hapticFeedbackButton.setTitle(startString, for: .normal)
             }
         }
     }
@@ -45,6 +48,8 @@ class MetronomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        metronomeRunningStatus = false
+        
         let value = Int(bpmSliderControl.value)
         bpmNumberLabel.text = "\(value)"
         metronome.setBPM(to: value)

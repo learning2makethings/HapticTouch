@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  HapticTouch
+
+  Created by Felix Fritz on 4/8/19.
+  Copyright © 2019 Coding Buddies. All rights reserved.
+*/
+"startMetronome" = "Start";
+"stopMetronome" = "Stop";
