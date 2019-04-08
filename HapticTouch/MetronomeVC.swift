@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MetronomeVC.swift
 //  HapticTouch
 //
 //  Created by Allen on 3/29/19.
@@ -22,7 +22,7 @@ extension UIDevice {
     }
 }
 
-class ViewController: UIViewController {
+class MetronomeVC: UIViewController {
 
     @IBOutlet weak var hapticFeedbackButton: UIButton!
     @IBOutlet weak var bpmSliderControl: UISlider!
