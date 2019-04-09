@@ -1,0 +1,10 @@
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "GGw-It-3WT"; */
+"GGw-It-3WT.normalTitle" = "Start";
+"GGw-It-3WT.stopTitle" = "Stop";
+
+/* Class = "UILabel"; text = "BPM"; ObjectID = "nWA-Yb-asR"; */
+"nWA-Yb-asR.text" = "BPM";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "uvh-65-NwH"; */
+"uvh-65-NwH.text" = "100";
