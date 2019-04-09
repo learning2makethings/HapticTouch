@@ -1,0 +1,9 @@
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceLabel"; text = "BPM"; ObjectID = "Kis-Bt-8c9"; */
+"Kis-Bt-8c9.text" = "BPM";
+
+/* Class = "WKInterfaceButton"; title = "Start"; ObjectID = "Ynm-C9-nSk"; */
+"Ynm-C9-nSk.title" = "Start";
