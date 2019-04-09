@@ -27,11 +27,9 @@ class MetronomeVC: UIViewController {
     @IBOutlet weak var hapticFeedbackButton: UIButton!
     @IBOutlet weak var bpmSliderControl: UISlider!
     @IBOutlet weak var bpmNumberLabel: UILabel!
-    
-    // check if device is an iPhone 6 or iPhone 6s (no support for impact generator)
+    // Check if device is an iPhone 6 or iPhone 6s (no support for impact generator)
     // iPhone 6 models begin with string iPhone8
     let metronome = Metronome(bpm: 60, supportsImpactGenerator: !UIDevice.current.modelName.starts(with: "iPhone8"))
-    
     var metronomeRunningStatus = false {
         didSet {
             if metronome.isRunning() == true {
@@ -54,19 +52,15 @@ class MetronomeVC: UIViewController {
         metronome.toggle()
         metronomeRunningStatus = metronome.isRunning()
     }
-    
+
     func timerActionFallback() {
         AudioServicesPlaySystemSound(1520)
     }
 
     @IBAction func bpmSliderValueChanged(_ sender: UISlider) {
-        metronome.stop()
-        metronomeRunningStatus = false
-        
         let currentMetronomeSpeed = Int(sender.value)
         bpmNumberLabel.text = "\(currentMetronomeSpeed)"
         metronome.setBPM(to: currentMetronomeSpeed)
-        
     }
-}
 
+}
