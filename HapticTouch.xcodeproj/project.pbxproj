@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280858AE225E8C780047B7EF /* MetronomeDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280858AD225E8C780047B7EF /* MetronomeDesign.swift */; };
+		280858B0225E8CB50047B7EF /* MetronomeDesign.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280858AF225E8CB50047B7EF /* MetronomeDesign.xib */; };
 		285F8524224E95DB00A14ED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F8523224E95DB00A14ED3 /* AppDelegate.swift */; };
 		285F8526224E95DB00A14ED3 /* MetronomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F8525224E95DB00A14ED3 /* MetronomeVC.swift */; };
 		285F8529224E95DB00A14ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F8527224E95DB00A14ED3 /* Main.storyboard */; };
@@ -78,6 +80,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		280858AD225E8C780047B7EF /* MetronomeDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeDesign.swift; sourceTree = "<group>"; };
+		280858AF225E8CB50047B7EF /* MetronomeDesign.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetronomeDesign.xib; sourceTree = "<group>"; };
 		285F8520224E95DB00A14ED3 /* HapticTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HapticTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F8523224E95DB00A14ED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		285F8525224E95DB00A14ED3 /* MetronomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeVC.swift; sourceTree = "<group>"; };
@@ -140,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		280858AC225E8C250047B7EF /* Metronome Graphic Views */ = {
+			isa = PBXGroup;
+			children = (
+				280858AD225E8C780047B7EF /* MetronomeDesign.swift */,
+				280858AF225E8CB50047B7EF /* MetronomeDesign.xib */,
+			);
+			path = "Metronome Graphic Views";
+			sourceTree = "<group>";
+		};
 		285F8517224E95DB00A14ED3 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				E28A854A2253D60800B4FE28 /* sound */,
+				280858AC225E8C250047B7EF /* Metronome Graphic Views */,
 				285F8523224E95DB00A14ED3 /* AppDelegate.swift */,
 				285F8525224E95DB00A14ED3 /* MetronomeVC.swift */,
 				E28A854D2253EB0C00B4FE28 /* SoundPlayer.swift */,
@@ -351,6 +365,7 @@
 				285F852E224E95DE00A14ED3 /* LaunchScreen.storyboard in Resources */,
 				E28A854C2253E08A00B4FE28 /* click1.wav in Resources */,
 				285F852B224E95DE00A14ED3 /* Assets.xcassets in Resources */,
+				280858B0225E8CB50047B7EF /* MetronomeDesign.xib in Resources */,
 				285F8529224E95DB00A14ED3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +403,7 @@
 			files = (
 				E21799A222545651004E77D8 /* Metronome.swift in Sources */,
 				285F8526224E95DB00A14ED3 /* MetronomeVC.swift in Sources */,
+				280858AE225E8C780047B7EF /* MetronomeDesign.swift in Sources */,
 				E28A854E2253EB0C00B4FE28 /* SoundPlayer.swift in Sources */,
 				285F8524224E95DB00A14ED3 /* AppDelegate.swift in Sources */,
 			);
@@ -600,7 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QCU9M5L4PP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "HapticTouch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,7 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QCU9M5L4PP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "HapticTouch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -645,7 +661,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QCU9M5L4PP;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = HapticTouch_WatchKit_Extension;
 				INFOPLIST_FILE = "HapticTouch WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingbuddies.HapticTouch.watchkitapp;
@@ -664,7 +680,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QCU9M5L4PP;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = HapticTouch_WatchKit_Extension;
 				INFOPLIST_FILE = "HapticTouch WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingbuddies.HapticTouch.watchkitapp;
@@ -682,7 +698,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QCU9M5L4PP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HapticTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -700,7 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QCU9M5L4PP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HapticTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -719,7 +735,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QCU9M5L4PP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HapticTouchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -740,7 +756,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QCU9M5L4PP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HapticTouchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
