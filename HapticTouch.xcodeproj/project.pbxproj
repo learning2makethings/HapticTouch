@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		280858AE225E8C780047B7EF /* MetronomeDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280858AD225E8C780047B7EF /* MetronomeDesign.swift */; };
-		280858B0225E8CB50047B7EF /* MetronomeDesign.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280858AF225E8CB50047B7EF /* MetronomeDesign.xib */; };
+		280858AE225E8C780047B7EF /* MetronomeDesignOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280858AD225E8C780047B7EF /* MetronomeDesignOne.swift */; };
+		280858B0225E8CB50047B7EF /* MetronomeDesignOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280858AF225E8CB50047B7EF /* MetronomeDesignOne.xib */; };
+		280858B2225EA9880047B7EF /* MetronomeDesignTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280858B1225EA9880047B7EF /* MetronomeDesignTwo.swift */; };
+		280858B4225EA9930047B7EF /* MetronomeDesignTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280858B3225EA9930047B7EF /* MetronomeDesignTwo.xib */; };
 		285F8524224E95DB00A14ED3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F8523224E95DB00A14ED3 /* AppDelegate.swift */; };
 		285F8526224E95DB00A14ED3 /* MetronomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F8525224E95DB00A14ED3 /* MetronomeVC.swift */; };
 		285F8529224E95DB00A14ED3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285F8527224E95DB00A14ED3 /* Main.storyboard */; };
@@ -80,8 +82,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		280858AD225E8C780047B7EF /* MetronomeDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeDesign.swift; sourceTree = "<group>"; };
-		280858AF225E8CB50047B7EF /* MetronomeDesign.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetronomeDesign.xib; sourceTree = "<group>"; };
+		280858AD225E8C780047B7EF /* MetronomeDesignOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeDesignOne.swift; sourceTree = "<group>"; };
+		280858AF225E8CB50047B7EF /* MetronomeDesignOne.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetronomeDesignOne.xib; sourceTree = "<group>"; };
+		280858B1225EA9880047B7EF /* MetronomeDesignTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetronomeDesignTwo.swift; sourceTree = "<group>"; };
+		280858B3225EA9930047B7EF /* MetronomeDesignTwo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MetronomeDesignTwo.xib; sourceTree = "<group>"; };
 		285F8520224E95DB00A14ED3 /* HapticTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HapticTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285F8523224E95DB00A14ED3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		285F8525224E95DB00A14ED3 /* MetronomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeVC.swift; sourceTree = "<group>"; };
@@ -147,8 +151,10 @@
 		280858AC225E8C250047B7EF /* Metronome Graphic Views */ = {
 			isa = PBXGroup;
 			children = (
-				280858AD225E8C780047B7EF /* MetronomeDesign.swift */,
-				280858AF225E8CB50047B7EF /* MetronomeDesign.xib */,
+				280858AD225E8C780047B7EF /* MetronomeDesignOne.swift */,
+				280858AF225E8CB50047B7EF /* MetronomeDesignOne.xib */,
+				280858B1225EA9880047B7EF /* MetronomeDesignTwo.swift */,
+				280858B3225EA9930047B7EF /* MetronomeDesignTwo.xib */,
 			);
 			path = "Metronome Graphic Views";
 			sourceTree = "<group>";
@@ -362,10 +368,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2CEFF50225BF4DB0053BA22 /* Localizable.strings in Resources */,
+				280858B4225EA9930047B7EF /* MetronomeDesignTwo.xib in Resources */,
 				285F852E224E95DE00A14ED3 /* LaunchScreen.storyboard in Resources */,
 				E28A854C2253E08A00B4FE28 /* click1.wav in Resources */,
 				285F852B224E95DE00A14ED3 /* Assets.xcassets in Resources */,
-				280858B0225E8CB50047B7EF /* MetronomeDesign.xib in Resources */,
+				280858B0225E8CB50047B7EF /* MetronomeDesignOne.xib in Resources */,
 				285F8529224E95DB00A14ED3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,9 +410,10 @@
 			files = (
 				E21799A222545651004E77D8 /* Metronome.swift in Sources */,
 				285F8526224E95DB00A14ED3 /* MetronomeVC.swift in Sources */,
-				280858AE225E8C780047B7EF /* MetronomeDesign.swift in Sources */,
+				280858AE225E8C780047B7EF /* MetronomeDesignOne.swift in Sources */,
 				E28A854E2253EB0C00B4FE28 /* SoundPlayer.swift in Sources */,
 				285F8524224E95DB00A14ED3 /* AppDelegate.swift in Sources */,
+				280858B2225EA9880047B7EF /* MetronomeDesignTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

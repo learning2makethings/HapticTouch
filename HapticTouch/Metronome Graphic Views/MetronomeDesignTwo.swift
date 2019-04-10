@@ -1,5 +1,5 @@
 //
-//  MetronomeDesign.swift
+//  MetronomeDesignTwo.swift
 //  HapticTouch
 //
 //  Created by Allen Wong on 4/10/19.
@@ -8,8 +8,6 @@
 
 import UIKit
 
-class MetronomeDesign: UIView {
-    @IBOutlet weak var viewLabel: UILabel!
+class MetronomeDesignTwo: UIView {
     @IBOutlet weak var bpmLabel: UILabel!
-    
 }

@@ -18,26 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OMc-CD-Xc5">
-                                <rect key="frame" x="20" y="338" width="100.5" height="42"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvh-65-NwH">
-                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BPM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWA-Yb-asR">
-                                        <rect key="frame" x="64.5" y="0.0" width="36" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="nWA-Yb-asR" firstAttribute="bottom" secondItem="uvh-65-NwH" secondAttribute="bottom" id="Hck-Iq-vNm"/>
-                                </constraints>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGw-It-3WT">
                                 <rect key="frame" x="143" y="445" width="34" height="30"/>
                                 <state key="normal" title="Start"/>
@@ -94,10 +74,10 @@
                                 </constraints>
                             </stackView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5qu-XB-eWW">
-                                <rect key="frame" x="140.5" y="293" width="39" height="37"/>
+                                <rect key="frame" x="140.5" y="348" width="39" height="37"/>
                             </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2al-SU-rig">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="385"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                         </subviews>
@@ -107,20 +87,17 @@
                             <constraint firstItem="GGw-It-3WT" firstAttribute="centerX" secondItem="Ofh-OR-39W" secondAttribute="centerX" id="10w-Qx-iVT"/>
                             <constraint firstItem="2al-SU-rig" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9Gh-N8-ENL"/>
                             <constraint firstItem="GGw-It-3WT" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="bottom" constant="15" id="9Kj-0f-VFi"/>
-                            <constraint firstItem="uvh-65-NwH" firstAttribute="top" secondItem="2al-SU-rig" secondAttribute="bottom" constant="8" id="D8b-9y-R2Q"/>
                             <constraint firstItem="5qu-XB-eWW" firstAttribute="centerX" secondItem="2al-SU-rig" secondAttribute="centerX" id="ELB-dk-1Tg"/>
                             <constraint firstItem="5qu-XB-eWW" firstAttribute="bottom" secondItem="2al-SU-rig" secondAttribute="bottom" id="Fjp-hv-Mum"/>
                             <constraint firstAttribute="trailing" secondItem="o9m-Ts-hfV" secondAttribute="trailing" constant="20" id="KmG-kP-HEV"/>
                             <constraint firstItem="2al-SU-rig" firstAttribute="trailing" secondItem="Uee-0j-aNJ" secondAttribute="trailing" id="Nmn-eP-r5r"/>
-                            <constraint firstItem="o9m-Ts-hfV" firstAttribute="top" secondItem="OMc-CD-Xc5" secondAttribute="bottom" constant="20" id="iKR-w1-hLp"/>
+                            <constraint firstItem="o9m-Ts-hfV" firstAttribute="top" secondItem="2al-SU-rig" secondAttribute="bottom" constant="15" id="b5r-oo-Muj"/>
                             <constraint firstItem="o9m-Ts-hfV" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="20" id="qgp-WO-NeS"/>
                             <constraint firstItem="2al-SU-rig" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" id="rdE-r9-jMw"/>
-                            <constraint firstItem="OMc-CD-Xc5" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="20" id="tvY-7n-fsX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
                     </view>
                     <connections>
-                        <outlet property="bpmNumberLabel" destination="uvh-65-NwH" id="Pu5-VR-Zk1"/>
                         <outlet property="bpmSliderControl" destination="Ofh-OR-39W" id="fJ0-aZ-oLx"/>
                         <outlet property="hapticFeedbackButton" destination="GGw-It-3WT" id="EBm-pW-rRX"/>
                         <outlet property="metronomeDesignsPageControl" destination="5qu-XB-eWW" id="s8g-XR-Mel"/>
