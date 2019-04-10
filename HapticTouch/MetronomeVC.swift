@@ -73,23 +73,21 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     }
 
     @IBAction func minusButtonPressed(_ sender: Any) {
-        //write if statement to lower slider control
         var value = Int(bpmSliderControl.value)
         if value > 40 {
             value -= 1
-            updateFieldsInMetronomeDesignOne(bpm: "\(value)")
+            updateBpmLabel(bpm: "\(value)")
             metronome.setBPM(to: value)
             bpmSliderControl.setValue(Float(value), animated: true)
         }
-
     }
     
     @IBAction func plusButtonPressed(_ sender: Any) {
-        //write if statement to raise slider control
         var value = Int(bpmSliderControl.value)
         if value < 218 {
             value += 1
             updateFieldsInMetronomeDesignOne(bpm: "\(value)")
+            updateBpmLabel(bpm: "\(value)")
             metronome.setBPM(to: value)
             bpmSliderControl.setValue(Float(value), animated: true)
         }
@@ -106,18 +104,34 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         AudioServicesPlaySystemSound(1520)
     }
 
+    // Add a function here to update your Metronome Designs BPM label if applicable
+    func updateBpmLabel(bpm: String) {
+        updateFieldsInMetronomeDesignOne(bpm: bpm)
+    }
+
     // Example of how to access properties of the currently selected Metronome Design in the scrollview
     func updateFieldsInMetronomeDesignOne(bpm: String) {
-        let pageIndex = Int(round(metronomeDesignsScrollView.contentOffset.x / view.frame.width))
-        metronomeDesignsPageControl.currentPage = pageIndex
-        let currentView = metronomeDesigns[pageIndex]
-        if currentView.isKind(of: MetronomeDesignOne.self) {
+        if currentDesign() == .designOne {
             let currentPageIndex = metronomeDesignsPageControl.currentPage
             let currentlySelectedDesign = metronomeDesigns[currentPageIndex] as! MetronomeDesignOne
             currentlySelectedDesign.bpmLabel.text = bpm
         }
     }
 
+    func currentDesign() -> MetronomeDesign {
+        let pageIndex = Int(round(metronomeDesignsScrollView.contentOffset.x / view.frame.width))
+        let currentView = metronomeDesigns[pageIndex]
+        if currentView.isKind(of: MetronomeDesignOne.self) {
+            return .designOne
+        } else if currentView.isKind(of: MetronomeDesignOne.self) {
+            return .designTwo
+        } else {
+            return .designOne
+        }
+    }
+
+    // Sync the BPM number when the design is changed if the Metronome Design has a BPM label
+    // Currently only set to work for Design One
     func syncBpmNumberBetweenViews() {
         let currentMetronomeSpeed = Int(bpmSliderControl.value)
         updateFieldsInMetronomeDesignOne(bpm: "\(currentMetronomeSpeed)")
@@ -161,4 +175,10 @@ extension UIDevice {
         }
         return identifier
     }
+}
+
+// MARK: - Enums
+enum MetronomeDesign {
+    case designOne
+    case designTwo
 }
