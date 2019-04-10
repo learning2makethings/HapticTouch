@@ -63,10 +63,35 @@ class MetronomeVC: UIViewController {
         AudioServicesPlaySystemSound(1520)
     }
 
+    @IBAction func minusButtonPressed(_ sender: Any) {
+        //write if statement to lower slider control
+        var value = Int(bpmSliderControl.value)
+        if value > 40 {
+            value -= 1
+            bpmNumberLabel.text = "\(value)"
+            metronome.setBPM(to: value)
+            bpmSliderControl.setValue(Float(value), animated: true)
+        }
+
+    }
+    
+    @IBAction func plusButtonPressed(_ sender: Any) {
+        //write if statement to raise slider control
+        var value = Int(bpmSliderControl.value)
+        if value < 218 {
+            value += 1
+            bpmNumberLabel.text = "\(value)"
+            metronome.setBPM(to: value)
+            bpmSliderControl.setValue(Float(value), animated: true)
+        }
+        
+    }
+    
     @IBAction func bpmSliderValueChanged(_ sender: UISlider) {
         let currentMetronomeSpeed = Int(sender.value)
         bpmNumberLabel.text = "\(currentMetronomeSpeed)"
         metronome.setBPM(to: currentMetronomeSpeed)
     }
+
 
 }
