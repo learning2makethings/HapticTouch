@@ -49,31 +49,30 @@
                                 <rect key="frame" x="20" y="782" width="374" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-Rr-sqy">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="gWq-RD-FAQ"/>
                                             <constraint firstAttribute="width" constant="30" id="pjc-L4-bkc"/>
                                         </constraints>
-                                        <state key="normal" title="minusButton" image="minus_button"/>
+                                        <state key="normal" image="minus_button"/>
                                         <connections>
                                             <action selector="minusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m5I-vO-ETC"/>
                                         </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="40" maxValue="218" translatesAutoresizingMaskIntoConstraints="NO" id="Ofh-OR-39W">
-                                        <rect key="frame" x="33" y="0.0" width="308" height="31"/>
+                                        <rect key="frame" x="28" y="0.0" width="318" height="31"/>
                                         <connections>
-                                            <action selector="bpmIncreaseTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5c-Se-4I6"/>
-                                            <action selector="bpmSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="UEI-ee-0Gt"/>
+                                            <action selector="bpmSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="it6-6E-QqS"/>
                                         </connections>
                                     </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC9-3D-csR">
-                                        <rect key="frame" x="339" y="0.0" width="35" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC9-3D-csR">
+                                        <rect key="frame" x="344" y="0.0" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="TNm-q1-UZt"/>
                                             <constraint firstAttribute="height" constant="30" id="VPy-4d-uSU"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="sM5-08-lK3"/>
                                         </constraints>
-                                        <state key="normal" title="plusButton" image="plus_button"/>
+                                        <state key="normal" image="plus_button"/>
                                         <connections>
                                             <action selector="plusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BBY-d1-5mD"/>
                                         </connections>
@@ -87,14 +86,11 @@
                                     <constraint firstItem="Ofh-OR-39W" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="KJt-Li-l4B"/>
                                     <constraint firstItem="9KR-Rr-sqy" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="PbB-dW-gwq"/>
                                     <constraint firstItem="Ofh-OR-39W" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="byI-zv-LeW"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ofh-OR-39W" secondAttribute="trailing" constant="35" id="fva-tT-XQG"/>
-                                    <constraint firstItem="Ofh-OR-39W" firstAttribute="leading" secondItem="o9m-Ts-hfV" secondAttribute="leading" constant="35" id="hLn-5Q-Sw5"/>
                                     <constraint firstAttribute="bottom" secondItem="Ofh-OR-39W" secondAttribute="bottom" id="kJf-wC-6Sl"/>
                                     <constraint firstAttribute="bottom" secondItem="aC9-3D-csR" secondAttribute="bottom" id="kuD-Wd-w98"/>
                                     <constraint firstItem="aC9-3D-csR" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="mcE-m0-QG4"/>
                                     <constraint firstItem="Ofh-OR-39W" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="oC6-AJ-F1g"/>
                                     <constraint firstItem="aC9-3D-csR" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="sva-HC-2xW"/>
-                                    <constraint firstAttribute="trailing" secondItem="aC9-3D-csR" secondAttribute="trailing" id="y9h-7N-bO0"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -113,7 +109,7 @@
                     </view>
                     <connections>
                         <outlet property="bpmNumberLabel" destination="uvh-65-NwH" id="Pu5-VR-Zk1"/>
-                        <outlet property="bpmSliderControl" destination="Ofh-OR-39W" id="pcc-ta-Y5s"/>
+                        <outlet property="bpmSliderControl" destination="Ofh-OR-39W" id="fJ0-aZ-oLx"/>
                         <outlet property="hapticFeedbackButton" destination="GGw-It-3WT" id="EBm-pW-rRX"/>
                     </connections>
                 </viewController>

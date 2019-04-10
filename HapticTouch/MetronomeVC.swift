@@ -47,6 +47,8 @@ class MetronomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        metronomeRunningStatus = false
+        
         let value = Int(bpmSliderControl.value)
         bpmNumberLabel.text = "\(value)"
         metronome.setBPM(to: value)
@@ -76,7 +78,7 @@ class MetronomeVC: UIViewController {
     @IBAction func plusButtonPressed(_ sender: Any) {
         //write if statement to raise slider control
         var value = Int(bpmSliderControl.value)
-        if value > 40 {
+        if value < 218 {
             value += 1
             bpmNumberLabel.text = "\(value)"
             metronome.setBPM(to: value)
