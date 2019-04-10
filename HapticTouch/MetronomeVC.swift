@@ -96,7 +96,7 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     @IBAction func bpmSliderValueChanged(_ sender: UISlider) {
         let currentMetronomeSpeed = Int(sender.value)
         metronome.setBPM(to: currentMetronomeSpeed)
-        updateFieldsInMetronomeDesignOne(bpm: "\(currentMetronomeSpeed)")
+        updateBpmLabel(bpm: "\(currentMetronomeSpeed)")
     }
 
     // MARK: - Functions (Better name for this mark?)
