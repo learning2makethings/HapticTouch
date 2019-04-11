@@ -11,6 +11,8 @@ import AudioToolbox
 
 class MetronomeVC: UIViewController, UIScrollViewDelegate {
     // MARK: - Outlets
+    
+    @IBOutlet weak var scrollViewContainerView: UIView!
     @IBOutlet weak var metronomeDesignsScrollView: UIScrollView!
     @IBOutlet weak var metronomeDesignsPageControl: UIPageControl!
     @IBOutlet weak var hapticFeedbackButton: UIButton!
@@ -60,11 +62,12 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     }
 
     func setupScrollView(metronomeStyles: [UIView]) {
-        metronomeDesignsScrollView.contentSize = CGSize(width: view.frame.width * CGFloat(createMetronomeDesigns().count), height: metronomeDesignsScrollView.frame.height)
+        metronomeDesignsScrollView.contentSize = CGSize(width: scrollViewContainerView.frame.width * CGFloat(createMetronomeDesigns().count), height: metronomeDesignsScrollView.frame.height)
         metronomeDesignsScrollView.isPagingEnabled = true
 
         for design in 0 ..< metronomeStyles.count {
-            metronomeStyles[design].frame = CGRect(x: view.frame.width * CGFloat(design), y: 0, width: view.frame.width, height: metronomeDesignsScrollView.frame.height)
+
+            metronomeStyles[design].frame = CGRect(x: scrollViewContainerView.frame.width * CGFloat(design), y: 0, width: scrollViewContainerView.frame.width, height: metronomeDesignsScrollView.frame.height)
             metronomeDesignsScrollView.addSubview(metronomeStyles[design])
         }
     }

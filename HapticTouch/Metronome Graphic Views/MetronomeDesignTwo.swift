@@ -22,7 +22,5 @@ class MetronomeDesignTwo: UIView {
     }
 
     private func setupView() {
-        self.isOpaque = true
-        self.alpha = 0.7
     }
 }

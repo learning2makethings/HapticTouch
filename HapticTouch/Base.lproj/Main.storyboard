@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,18 +15,37 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MetronomeVC" customModule="HapticTouch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGw-It-3WT">
-                                <rect key="frame" x="143" y="445" width="34" height="30"/>
+                                <rect key="frame" x="170.66666666666666" y="743" width="34" height="30"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="hapticFeedbackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A76-pr-Lli"/>
                                 </connections>
                             </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5qu-XB-eWW">
+                                <rect key="frame" x="140" y="646" width="95" height="37"/>
+                            </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yq1-zz-CQl">
+                                <rect key="frame" x="0.0" y="44" width="375" height="646"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2al-SU-rig">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2al-SU-rig" secondAttribute="bottom" constant="7" id="SNG-Sa-1bJ"/>
+                                    <constraint firstItem="2al-SU-rig" firstAttribute="leading" secondItem="Yq1-zz-CQl" secondAttribute="leading" id="WVc-Zx-3VC"/>
+                                    <constraint firstAttribute="trailing" secondItem="2al-SU-rig" secondAttribute="trailing" id="fee-zc-qg7"/>
+                                    <constraint firstItem="2al-SU-rig" firstAttribute="top" secondItem="Yq1-zz-CQl" secondAttribute="top" id="lyv-kd-4SB"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9m-Ts-hfV">
-                                <rect key="frame" x="20" y="400" width="280" height="30"/>
+                                <rect key="frame" x="20" y="698" width="335" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-Rr-sqy">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -40,13 +59,13 @@
                                         </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="40" maxValue="218" translatesAutoresizingMaskIntoConstraints="NO" id="Ofh-OR-39W">
-                                        <rect key="frame" x="28" y="0.0" width="224" height="31"/>
+                                        <rect key="frame" x="28" y="0.0" width="279" height="31"/>
                                         <connections>
                                             <action selector="bpmSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="it6-6E-QqS"/>
                                         </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC9-3D-csR">
-                                        <rect key="frame" x="250" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="305" y="0.0" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="TNm-q1-UZt"/>
                                             <constraint firstAttribute="height" constant="30" id="VPy-4d-uSU"/>
@@ -73,27 +92,22 @@
                                     <constraint firstItem="aC9-3D-csR" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="sva-HC-2xW"/>
                                 </constraints>
                             </stackView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5qu-XB-eWW">
-                                <rect key="frame" x="140.5" y="348" width="39" height="37"/>
-                            </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2al-SU-rig">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="385"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Uee-0j-aNJ" firstAttribute="bottom" secondItem="GGw-It-3WT" secondAttribute="bottom" constant="5" id="0lZ-gY-V57"/>
+                            <constraint firstItem="Yq1-zz-CQl" firstAttribute="top" secondItem="Uee-0j-aNJ" secondAttribute="top" id="0xb-SR-ZGR"/>
                             <constraint firstItem="GGw-It-3WT" firstAttribute="centerX" secondItem="Ofh-OR-39W" secondAttribute="centerX" id="10w-Qx-iVT"/>
-                            <constraint firstItem="2al-SU-rig" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9Gh-N8-ENL"/>
+                            <constraint firstItem="o9m-Ts-hfV" firstAttribute="top" secondItem="Yq1-zz-CQl" secondAttribute="bottom" constant="8" symbolic="YES" id="2ad-Jb-z1X"/>
+                            <constraint firstItem="o9m-Ts-hfV" firstAttribute="top" secondItem="5qu-XB-eWW" secondAttribute="bottom" constant="15" id="2lX-TJ-3P7"/>
                             <constraint firstItem="GGw-It-3WT" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="bottom" constant="15" id="9Kj-0f-VFi"/>
-                            <constraint firstItem="5qu-XB-eWW" firstAttribute="centerX" secondItem="2al-SU-rig" secondAttribute="centerX" id="ELB-dk-1Tg"/>
-                            <constraint firstItem="5qu-XB-eWW" firstAttribute="bottom" secondItem="2al-SU-rig" secondAttribute="bottom" id="Fjp-hv-Mum"/>
                             <constraint firstAttribute="trailing" secondItem="o9m-Ts-hfV" secondAttribute="trailing" constant="20" id="KmG-kP-HEV"/>
-                            <constraint firstItem="2al-SU-rig" firstAttribute="trailing" secondItem="Uee-0j-aNJ" secondAttribute="trailing" id="Nmn-eP-r5r"/>
-                            <constraint firstItem="o9m-Ts-hfV" firstAttribute="top" secondItem="2al-SU-rig" secondAttribute="bottom" constant="15" id="b5r-oo-Muj"/>
+                            <constraint firstItem="Yq1-zz-CQl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="OOh-z9-D93"/>
+                            <constraint firstItem="Yq1-zz-CQl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZAn-92-yS0"/>
+                            <constraint firstItem="5qu-XB-eWW" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="140" id="ZYg-iV-XxA"/>
+                            <constraint firstItem="Yq1-zz-CQl" firstAttribute="centerX" secondItem="Uee-0j-aNJ" secondAttribute="centerX" id="cMM-Lf-nLY"/>
                             <constraint firstItem="o9m-Ts-hfV" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="20" id="qgp-WO-NeS"/>
-                            <constraint firstItem="2al-SU-rig" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" id="rdE-r9-jMw"/>
+                            <constraint firstItem="5qu-XB-eWW" firstAttribute="centerX" secondItem="o9m-Ts-hfV" secondAttribute="centerX" id="uxa-Go-hiy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
                     </view>
@@ -102,6 +116,7 @@
                         <outlet property="hapticFeedbackButton" destination="GGw-It-3WT" id="EBm-pW-rRX"/>
                         <outlet property="metronomeDesignsPageControl" destination="5qu-XB-eWW" id="s8g-XR-Mel"/>
                         <outlet property="metronomeDesignsScrollView" destination="2al-SU-rig" id="Ltd-Ro-wMe"/>
+                        <outlet property="scrollViewContainerView" destination="Yq1-zz-CQl" id="rpP-Nf-Beo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
