@@ -18,10 +18,10 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s79-Fw-XE9">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="s79-Fw-XE9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3iD-Nn-53c"/>
                 <constraint firstItem="s79-Fw-XE9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="48W-rV-0nE"/>

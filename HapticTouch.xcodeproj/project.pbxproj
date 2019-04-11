@@ -186,15 +186,15 @@
 			children = (
 				E28A854A2253D60800B4FE28 /* sound */,
 				280858AC225E8C250047B7EF /* Metronome Graphic Views */,
-				285F8523224E95DB00A14ED3 /* AppDelegate.swift */,
+				E21799A122545651004E77D8 /* Metronome.swift */,
 				285F8525224E95DB00A14ED3 /* MetronomeVC.swift */,
 				E28A854D2253EB0C00B4FE28 /* SoundPlayer.swift */,
 				285F8527224E95DB00A14ED3 /* Main.storyboard */,
-				285F852A224E95DE00A14ED3 /* Assets.xcassets */,
 				285F852C224E95DE00A14ED3 /* LaunchScreen.storyboard */,
 				285F852F224E95DE00A14ED3 /* Info.plist */,
-				E21799A122545651004E77D8 /* Metronome.swift */,
+				285F852A224E95DE00A14ED3 /* Assets.xcassets */,
 				E2CEFF52225BF4DB0053BA22 /* Localizable.strings */,
+				285F8523224E95DB00A14ED3 /* AppDelegate.swift */,
 			);
 			path = HapticTouch;
 			sourceTree = "<group>";
@@ -624,7 +624,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8H47C96HUJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "HapticTouch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -646,7 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8H47C96HUJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "HapticTouch WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -669,7 +669,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8H47C96HUJ;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = HapticTouch_WatchKit_Extension;
 				INFOPLIST_FILE = "HapticTouch WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingbuddies.HapticTouch.watchkitapp;
@@ -688,7 +688,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8H47C96HUJ;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = HapticTouch_WatchKit_Extension;
 				INFOPLIST_FILE = "HapticTouch WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingbuddies.HapticTouch.watchkitapp;
@@ -706,7 +706,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8H47C96HUJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HapticTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -724,7 +724,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8H47C96HUJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HapticTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -743,7 +743,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8H47C96HUJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HapticTouchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -764,7 +764,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8H47C96HUJ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HapticTouchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

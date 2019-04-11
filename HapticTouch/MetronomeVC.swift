@@ -151,7 +151,7 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         viewOne.backgroundColor = UIColor.red
 
         let viewTwo = Bundle.main.loadNibNamed("MetronomeDesignTwo", owner: self, options: nil)?.first as! MetronomeDesignTwo
-
+        viewTwo.flashingView.backgroundColor = .lightGray
         let viewThree = Bundle.main.loadNibNamed("MetronomeDesignOne", owner: self, options: nil)?.first as! MetronomeDesignOne
         viewThree.backgroundColor = UIColor.gray
 
@@ -161,10 +161,10 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     @objc func flashView() {
         if currentDesign() == .designTwo {
             let currentView = metronomeDesigns[1] as! MetronomeDesignTwo
-            if currentView.flashingView.backgroundColor == UIColor.white {
+            if currentView.flashingView.backgroundColor == UIColor.lightGray {
                 currentView.flashingView.backgroundColor = UIColor.black
             } else {
-                currentView.flashingView.backgroundColor = UIColor.white
+                currentView.flashingView.backgroundColor = UIColor.lightGray
             }
         }
     }
