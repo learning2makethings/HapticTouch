@@ -16,26 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="R0n-SF-DiF">
-                    <rect key="frame" x="156.5" y="64" width="101" height="66"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjb-WS-EH9" userLabel="Bpm">
-                            <rect key="frame" x="0.0" y="0.0" width="101" height="66"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s79-Fw-XE9">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="R0n-SF-DiF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JEA-Km-A64"/>
-                <constraint firstItem="R0n-SF-DiF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="c3W-fQ-nC7"/>
+                <constraint firstItem="s79-Fw-XE9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3iD-Nn-53c"/>
+                <constraint firstItem="s79-Fw-XE9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="48W-rV-0nE"/>
+                <constraint firstItem="s79-Fw-XE9" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="NVa-dr-V9K"/>
+                <constraint firstItem="s79-Fw-XE9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ecn-sL-dg2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="bpmLabel" destination="Vjb-WS-EH9" id="6F6-Tb-lbf"/>
+                <outlet property="flashingView" destination="s79-Fw-XE9" id="pcO-P0-lVw"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="34.821428571428569"/>
         </view>

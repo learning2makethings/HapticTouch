@@ -9,5 +9,20 @@
 import UIKit
 
 class MetronomeDesignTwo: UIView {
-    @IBOutlet weak var bpmLabel: UILabel!
+    @IBOutlet weak var flashingView: UIView!
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
+    }
+
+    private func setupView() {
+        self.isOpaque = true
+        self.alpha = 0.7
+    }
 }

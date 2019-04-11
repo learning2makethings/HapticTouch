@@ -20,6 +20,7 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     let startString = NSLocalizedString("startMetronome", comment: "Start metronome")
     let stopString = NSLocalizedString("stopMetronome", comment: "Stop metronome")
     var metronomeDesigns = [UIView]()
+    var currentBpm = 100
     let metronome = Metronome(bpm: 60, supportsImpactGenerator: !UIDevice.current.modelName.starts(with: "iPhone8"))
     var metronomeRunningStatus = false {
         didSet {
@@ -35,13 +36,15 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupMetronomeTickNotification()
+        setupMetronomeBpmNotification()
         metronomeDesignsScrollView.delegate = self
         metronomeGraphicsSetup()
         metronomeGraphicPageControlSetup()
         metronomeRunningStatus = false
         let value = Int(bpmSliderControl.value)
         metronome.setBPM(to: value)
-        updateFieldsInMetronomeDesignOne(bpm: "\(value)")
+
     }
 
     // MARK: - Setup Functions
@@ -66,6 +69,16 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         }
     }
 
+    func setupMetronomeTickNotification() {
+        let metronomeTicked = Notification.Name("metronomeTicked")
+        NotificationCenter.default.addObserver(self, selector: #selector(flashView), name: metronomeTicked, object: nil)
+    }
+
+    func setupMetronomeBpmNotification() {
+        let notificationName = Notification.Name("metronomeBpm")
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBpmValue), name: notificationName, object: nil)
+    }
+
     // MARK: - Actions
     @IBAction func hapticFeedbackButton(_ sender: Any) {
         metronome.toggle()
@@ -76,7 +89,6 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         var value = Int(bpmSliderControl.value)
         if value > 40 {
             value -= 1
-            updateBpmLabel(bpm: "\(value)")
             metronome.setBPM(to: value)
             bpmSliderControl.setValue(Float(value), animated: true)
         }
@@ -86,8 +98,6 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         var value = Int(bpmSliderControl.value)
         if value < 218 {
             value += 1
-            updateFieldsInMetronomeDesignOne(bpm: "\(value)")
-            updateBpmLabel(bpm: "\(value)")
             metronome.setBPM(to: value)
             bpmSliderControl.setValue(Float(value), animated: true)
         }
@@ -96,7 +106,6 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     @IBAction func bpmSliderValueChanged(_ sender: UISlider) {
         let currentMetronomeSpeed = Int(sender.value)
         metronome.setBPM(to: currentMetronomeSpeed)
-        updateBpmLabel(bpm: "\(currentMetronomeSpeed)")
     }
 
     // MARK: - Functions (Better name for this mark?)
@@ -105,8 +114,10 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     }
 
     // Add a function here to update your Metronome Designs BPM label if applicable
-    func updateBpmLabel(bpm: String) {
-        updateFieldsInMetronomeDesignOne(bpm: bpm)
+    func updateBpmLabel() {
+        if currentDesign() == .designOne {
+            updateFieldsInMetronomeDesignOne(bpm: "\(currentBpm)")
+        }
     }
 
     // Example of how to access properties of the currently selected Metronome Design in the scrollview
@@ -123,18 +134,11 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         let currentView = metronomeDesigns[pageIndex]
         if currentView.isKind(of: MetronomeDesignOne.self) {
             return .designOne
-        } else if currentView.isKind(of: MetronomeDesignOne.self) {
+        } else if currentView.isKind(of: MetronomeDesignTwo.self) {
             return .designTwo
         } else {
             return .designOne
         }
-    }
-
-    // Sync the BPM number when the design is changed if the Metronome Design has a BPM label
-    // Currently only set to work for Design One
-    func syncBpmNumberBetweenViews() {
-        let currentMetronomeSpeed = Int(bpmSliderControl.value)
-        updateFieldsInMetronomeDesignOne(bpm: "\(currentMetronomeSpeed)")
     }
 
     // Load your design by changing to the relative nib name you created
@@ -144,7 +148,6 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         viewOne.backgroundColor = UIColor.red
 
         let viewTwo = Bundle.main.loadNibNamed("MetronomeDesignTwo", owner: self, options: nil)?.first as! MetronomeDesignTwo
-        viewTwo.backgroundColor = UIColor.blue
 
         let viewThree = Bundle.main.loadNibNamed("MetronomeDesignOne", owner: self, options: nil)?.first as! MetronomeDesignOne
         viewThree.backgroundColor = UIColor.gray
@@ -152,13 +155,33 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         return [viewOne, viewTwo, viewThree]
     }
 
+    @objc func flashView() {
+        if currentDesign() == .designTwo {
+            let currentView = metronomeDesigns[1] as! MetronomeDesignTwo
+            if currentView.flashingView.backgroundColor == UIColor.white {
+                currentView.flashingView.backgroundColor = UIColor.black
+            } else {
+                currentView.flashingView.backgroundColor = UIColor.white
+            }
+        }
+    }
+
+    @objc func updateBpmValue(_ notification: Notification) {
+         if let data = notification.userInfo as? [String: Int] {
+            guard let bpm = data.first else { return }
+            currentBpm = bpm.value
+            // Any views that need to update a bpm label should add it to this function
+            updateBpmLabel()
+        }
+    }
+
     // MARK: - ScrollView Delegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = Int(round(metronomeDesignsScrollView.contentOffset.x / view.frame.width))
         metronomeDesignsPageControl.currentPage = pageIndex
-        let currentView = metronomeDesigns[pageIndex]
-        if currentView.isKind(of: MetronomeDesignOne.self) {
-            syncBpmNumberBetweenViews()
+        // Check what Design is being scrolled too and update any needed info
+        if currentDesign() == .designOne {
+            updateBpmLabel()
         }
     }
 }
