@@ -57,9 +57,16 @@ class Metronome {
     }
 
     @objc func playMetronomeTick() {
+        sendMetronomeTickNotification()
         playSound()
         self.hapticFunction()
         beatWithSpeed(speed: bpm)
+    }
+
+    func sendMetronomeTickNotification() {
+        let notificationName = Notification.Name("metronomeTicked")
+        let notification = Notification.init(name: notificationName)
+        NotificationCenter.default.post(notification)
     }
 
     func stop() {
@@ -69,6 +76,8 @@ class Metronome {
 
     func setBPM(to value: Int) {
         bpm = value
+        let notificationName = Notification.Name("metronomeBpm")
+        NotificationCenter.default.post(name: notificationName, object: nil, userInfo: ["bpm": bpm])
     }
 
     func isRunning() -> Bool {
