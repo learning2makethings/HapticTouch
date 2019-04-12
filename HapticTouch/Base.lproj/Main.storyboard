@@ -26,13 +26,13 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5qu-XB-eWW">
-                                <rect key="frame" x="140" y="646" width="95" height="37"/>
+                                <rect key="frame" x="168" y="646" width="39" height="37"/>
                             </pageControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yq1-zz-CQl">
-                                <rect key="frame" x="0.0" y="44" width="375" height="646"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="639"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2al-SU-rig">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2al-SU-rig">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="632"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </scrollView>
                                 </subviews>
@@ -77,20 +77,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="aC9-3D-csR" secondAttribute="bottom" id="1ls-LE-52Y"/>
-                                    <constraint firstAttribute="bottom" secondItem="9KR-Rr-sqy" secondAttribute="bottom" id="4eQ-Io-DyS"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ofh-OR-39W" secondAttribute="bottom" id="6No-mm-4tF"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ofh-OR-39W" secondAttribute="bottom" id="HG4-xR-87x"/>
-                                    <constraint firstItem="Ofh-OR-39W" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="KJt-Li-l4B"/>
-                                    <constraint firstItem="9KR-Rr-sqy" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="PbB-dW-gwq"/>
-                                    <constraint firstItem="Ofh-OR-39W" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="byI-zv-LeW"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ofh-OR-39W" secondAttribute="bottom" id="kJf-wC-6Sl"/>
-                                    <constraint firstAttribute="bottom" secondItem="aC9-3D-csR" secondAttribute="bottom" id="kuD-Wd-w98"/>
-                                    <constraint firstItem="aC9-3D-csR" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="mcE-m0-QG4"/>
-                                    <constraint firstItem="Ofh-OR-39W" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="oC6-AJ-F1g"/>
-                                    <constraint firstItem="aC9-3D-csR" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="top" id="sva-HC-2xW"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,16 +84,15 @@
                             <constraint firstItem="Uee-0j-aNJ" firstAttribute="bottom" secondItem="GGw-It-3WT" secondAttribute="bottom" constant="5" id="0lZ-gY-V57"/>
                             <constraint firstItem="Yq1-zz-CQl" firstAttribute="top" secondItem="Uee-0j-aNJ" secondAttribute="top" id="0xb-SR-ZGR"/>
                             <constraint firstItem="GGw-It-3WT" firstAttribute="centerX" secondItem="Ofh-OR-39W" secondAttribute="centerX" id="10w-Qx-iVT"/>
-                            <constraint firstItem="o9m-Ts-hfV" firstAttribute="top" secondItem="Yq1-zz-CQl" secondAttribute="bottom" constant="8" symbolic="YES" id="2ad-Jb-z1X"/>
                             <constraint firstItem="o9m-Ts-hfV" firstAttribute="top" secondItem="5qu-XB-eWW" secondAttribute="bottom" constant="15" id="2lX-TJ-3P7"/>
                             <constraint firstItem="GGw-It-3WT" firstAttribute="top" secondItem="o9m-Ts-hfV" secondAttribute="bottom" constant="15" id="9Kj-0f-VFi"/>
+                            <constraint firstItem="5qu-XB-eWW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B1D-j1-uA1"/>
+                            <constraint firstItem="Uee-0j-aNJ" firstAttribute="trailing" secondItem="Yq1-zz-CQl" secondAttribute="trailing" id="CeJ-dr-6Nd"/>
                             <constraint firstAttribute="trailing" secondItem="o9m-Ts-hfV" secondAttribute="trailing" constant="20" id="KmG-kP-HEV"/>
                             <constraint firstItem="Yq1-zz-CQl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="OOh-z9-D93"/>
-                            <constraint firstItem="Yq1-zz-CQl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZAn-92-yS0"/>
-                            <constraint firstItem="5qu-XB-eWW" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="140" id="ZYg-iV-XxA"/>
-                            <constraint firstItem="Yq1-zz-CQl" firstAttribute="centerX" secondItem="Uee-0j-aNJ" secondAttribute="centerX" id="cMM-Lf-nLY"/>
+                            <constraint firstItem="5qu-XB-eWW" firstAttribute="bottom" secondItem="Yq1-zz-CQl" secondAttribute="bottom" id="gHn-ph-VV5"/>
+                            <constraint firstItem="Yq1-zz-CQl" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" id="nHd-Vd-nzT"/>
                             <constraint firstItem="o9m-Ts-hfV" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="20" id="qgp-WO-NeS"/>
-                            <constraint firstItem="5qu-XB-eWW" firstAttribute="centerX" secondItem="o9m-Ts-hfV" secondAttribute="centerX" id="uxa-Go-hiy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
                     </view>

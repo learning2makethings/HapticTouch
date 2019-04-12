@@ -61,17 +61,6 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         metronomeDesignsPageControl.currentPage = 0
     }
 
-    func setupScrollView(metronomeStyles: [UIView]) {
-        metronomeDesignsScrollView.contentSize = CGSize(width: scrollViewContainerView.frame.width * CGFloat(createMetronomeDesigns().count), height: scrollViewContainerView.frame.height)
-        metronomeDesignsScrollView.isPagingEnabled = true
-
-        for design in 0 ..< metronomeStyles.count {
-
-            metronomeStyles[design].frame = CGRect(x: scrollViewContainerView.frame.width * CGFloat(design), y: 0, width: scrollViewContainerView.frame.width, height: scrollViewContainerView.frame.height)
-            metronomeDesignsScrollView.addSubview(metronomeStyles[design])
-        }
-    }
-
     func setupMetronomeTickNotification() {
         let metronomeTicked = Notification.Name("metronomeTicked")
         NotificationCenter.default.addObserver(self, selector: #selector(flashView), name: metronomeTicked, object: nil)
@@ -144,12 +133,22 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         }
     }
 
+    func setupScrollView(metronomeStyles: [UIView]) {
+        metronomeDesignsScrollView.contentSize = CGSize(width: scrollViewContainerView.frame.width * CGFloat(createMetronomeDesigns().count), height: 0)
+        metronomeDesignsScrollView.isPagingEnabled = true
+
+        for design in 0 ..< metronomeStyles.count {
+            metronomeStyles[design].frame = CGRect(x: scrollViewContainerView.frame.width * CGFloat(design), y: 0, width: scrollViewContainerView.frame.width, height: scrollViewContainerView.frame.height)
+            metronomeDesignsScrollView.addSubview(metronomeStyles[design])
+        }
+    }
+
     // Load your design by changing to the relative nib name you created
     // Add it to the array returned below
     func createMetronomeDesigns() -> [UIView] {
         let viewOne = Bundle.main.loadNibNamed("MetronomeDesignOne", owner: self, options: nil)?.first as! MetronomeDesignOne
         viewOne.backgroundColor = UIColor.red
-
+        print("XXX: \(viewOne.frame)")
         let viewTwo = Bundle.main.loadNibNamed("MetronomeDesignTwo", owner: self, options: nil)?.first as! MetronomeDesignTwo
         viewTwo.flashingView.backgroundColor = .lightGray
         let viewThree = Bundle.main.loadNibNamed("MetronomeDesignOne", owner: self, options: nil)?.first as! MetronomeDesignOne
