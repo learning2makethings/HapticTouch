@@ -139,8 +139,8 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
             return .designOne
         } else if currentView.isKind(of: MetronomeDesignTwo.self) {
             return .designTwo
-        } else {
-            return .designOne
+        } else{
+            return .designThree
         }
     }
 
@@ -152,7 +152,7 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
 
         let viewTwo = Bundle.main.loadNibNamed("MetronomeDesignTwo", owner: self, options: nil)?.first as! MetronomeDesignTwo
         viewTwo.flashingView.backgroundColor = .lightGray
-        let viewThree = Bundle.main.loadNibNamed("MetronomeDesignOne", owner: self, options: nil)?.first as! MetronomeDesignOne
+        let viewThree = Bundle.main.loadNibNamed("MetronomeDesignThree", owner: self, options: nil)?.first as! MetronomeDesignThree
         viewThree.backgroundColor = UIColor.gray
 
         return [viewOne, viewTwo, viewThree]
@@ -207,4 +207,5 @@ extension UIDevice {
 enum MetronomeDesign {
     case designOne
     case designTwo
+    case designThree
 }
