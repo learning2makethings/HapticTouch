@@ -23,23 +23,23 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMd-sh-FXr">
-                    <rect key="frame" x="87" y="446" width="240" height="128"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBv-Jr-2VT">
+                    <rect key="frame" x="190" y="396" width="34" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Start"/>
+                    <connections>
+                        <action selector="startButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="BSr-NJ-pZ2"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ofd-6p-eNi">
+                    <rect key="frame" x="87" y="238" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="metronomeCenter" translatesAutoresizingMaskIntoConstraints="NO" id="Ofd-6p-eNi">
-                    <rect key="frame" x="87" y="446" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <skView contentMode="scaleToFill" fixedFrame="YES" sceneName="Metronome" translatesAutoresizingMaskIntoConstraints="NO" id="sFs-hz-wJl">
-                    <rect key="frame" x="87" y="247" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </skView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="metronome" destination="Ofd-6p-eNi" id="wsu-xv-1Cz"/>
+                <outlet property="metronome" destination="Ofd-6p-eNi" id="aKq-MA-1gU"/>
             </connections>
         </view>
         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mSD-HV-KCe">
@@ -48,7 +48,4 @@
             <point key="canvasLocation" x="16" y="44"/>
         </imageView>
     </objects>
-    <resources>
-        <image name="metronomeCenter" width="871" height="871"/>
-    </resources>
 </document>

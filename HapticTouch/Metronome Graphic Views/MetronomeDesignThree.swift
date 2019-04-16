@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SpriteKit
 
 class MetronomeDesignThree: UIView {
     
@@ -19,19 +18,24 @@ class MetronomeDesignThree: UIView {
     }
     */
 
-    let scene = SKScene(size: SKView.layoutFittingExpandedSize)
+    var metronomeImages = [UIImage]()
     
-    let image = SKSpriteNode(imageNamed:"metronomeCenter.png")
-    
- //   let metronomeArray: UIImage = [metronomeMovie]
-    
-    @IBOutlet weak var metronome: UIImageView!
+    let metronomeImageArray = ["metronomeCenter", "metronomLeft-1", "metronomLeft-2", "metronomLeft-3", "metronomLeft-4", "metronomLeft-5", "metronomLeft-6", "metronomLeft-7", "metronomLeft-8", "metronomLeft-7", "metronomLeft-6", "metronomLeft-5", "metronomLeft-4", "metronomLeft-3", "metronomLeft-2", "metronomLeft-1", "metronomeCenter", "metronomRight-1", "metronomRight-2", "metronomRight-3", "metronomRight-4", "metronomRight-5", "metronomRight-6", "metronomRight-7", "metronomRight-8", "metronomRight-7", "metronomRight-6", "metronomRight-5", "metronomRight-4", "metronomRight-3", "metronomRight-2", "metronomRight-1"]
     
 
     
-//    func metronomeMovie(){
-//        metronomeArray.animationImages
-//    }
-//
+    @IBOutlet weak var metronome: UIImageView!
     
+    @IBAction func startButtonPressed(_ sender: Any) {
+        aninmateMetronomeImages()
+    }
+    func aninmateMetronomeImages(){
+        for i in 0..<metronomeImageArray.count{
+            metronomeImages.append(UIImage(named: metronomeImageArray[i])!)
+        }
+        
+        metronome.animationImages = metronomeImages
+        metronome.startAnimating()
+    }
+
 }
