@@ -22,7 +22,6 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     let startString = NSLocalizedString("startMetronome", comment: "Start metronome")
     let stopString = NSLocalizedString("stopMetronome", comment: "Stop metronome")
     var metronomeDesigns = [UIView]()
-    var currentBpm = 100
     let metronome = Metronome(bpm: 60, supportsImpactGenerator: !UIDevice.current.modelName.starts(with: "iPhone8"))
     var metronomeRunningStatus = false {
         didSet {
@@ -108,7 +107,7 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     // Add a function here to update your Metronome Designs BPM label if applicable
     func updateBpmLabel() {
         if currentDesign() == .designOne {
-            updateFieldsInMetronomeDesignOne(bpm: "\(currentBpm)")
+            updateFieldsInMetronomeDesignOne(bpm: "\(metronome.bpm)")
         }
     }
 
@@ -181,12 +180,8 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     
 
     @objc func updateBpmValue(_ notification: Notification) {
-         if let data = notification.userInfo as? [String: Int] {
-            guard let bpm = data.first else { return }
-            currentBpm = bpm.value
-            // Any views that need to update a bpm label should add it to this function
-            updateBpmLabel()
-        }
+        // Any views that need to update a bpm label should add it to this function
+        updateBpmLabel()
     }
 
     // MARK: - ScrollView Delegate
