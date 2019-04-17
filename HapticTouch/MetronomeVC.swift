@@ -168,6 +168,18 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
             }
         }
     }
+    //MARK: - Metronome Animation
+    @objc func metronomeImageView(){
+        if currentDesign() == .designThree {
+            let currentView = metronomeDesigns[2] as! MetronomeDesignThree
+            if currentView.metronomeImageView.isAnimating == false {
+                currentView.metronomeImageView.startAnimating()
+            }else {
+                currentView.metronomeImageView.stopAnimating()
+            }
+        }
+    }
+    
 
     @objc func updateBpmValue(_ notification: Notification) {
          if let data = notification.userInfo as? [String: Int] {
