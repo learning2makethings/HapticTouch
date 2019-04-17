@@ -128,8 +128,8 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
             return .designOne
         } else if currentView.isKind(of: MetronomeDesignTwo.self) {
             return .designTwo
-        } else {
-            return .designOne
+        } else{
+            return .designThree
         }
     }
 
@@ -151,7 +151,7 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         print("XXX: \(viewOne.frame)")
         let viewTwo = Bundle.main.loadNibNamed("MetronomeDesignTwo", owner: self, options: nil)?.first as! MetronomeDesignTwo
         viewTwo.flashingView.backgroundColor = .lightGray
-        let viewThree = Bundle.main.loadNibNamed("MetronomeDesignOne", owner: self, options: nil)?.first as! MetronomeDesignOne
+        let viewThree = Bundle.main.loadNibNamed("MetronomeDesignThree", owner: self, options: nil)?.first as! MetronomeDesignThree
         viewThree.backgroundColor = UIColor.gray
 
         return [viewOne, viewTwo, viewThree]
@@ -167,6 +167,18 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
             }
         }
     }
+    //MARK: - Metronome Animation
+    @objc func metronomeImageView(){
+        if currentDesign() == .designThree {
+            let currentView = metronomeDesigns[2] as! MetronomeDesignThree
+            if currentView.metronomeImageView.isAnimating == false {
+                currentView.metronomeImageView.startAnimating()
+            }else {
+                currentView.metronomeImageView.stopAnimating()
+            }
+        }
+    }
+    
 
     @objc func updateBpmValue(_ notification: Notification) {
          if let data = notification.userInfo as? [String: Int] {
@@ -206,4 +218,5 @@ extension UIDevice {
 enum MetronomeDesign {
     case designOne
     case designTwo
+    case designThree
 }

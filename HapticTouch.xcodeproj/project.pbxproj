@@ -26,6 +26,9 @@
 		285F8556224E95DF00A14ED3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F8555224E95DF00A14ED3 /* NotificationController.swift */; };
 		285F8558224E95DF00A14ED3 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285F8557224E95DF00A14ED3 /* ComplicationController.swift */; };
 		285F855A224E95E000A14ED3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285F8559224E95E000A14ED3 /* Assets.xcassets */; };
+		9F34A577226532F100CD6AFD /* MetronomeAnimation in Resources */ = {isa = PBXBuildFile; fileRef = 9F34A576226532F100CD6AFD /* MetronomeAnimation */; };
+		9F94A8A1226038CF00926346 /* MetronomeDesignThree.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F94A8A0226038CF00926346 /* MetronomeDesignThree.xib */; };
+		9F94A8A32260393100926346 /* MetronomeDesignThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8A22260393100926346 /* MetronomeDesignThree.swift */; };
 		E21799A222545651004E77D8 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21799A122545651004E77D8 /* Metronome.swift */; };
 		E28A854C2253E08A00B4FE28 /* click1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28A854B2253E08A00B4FE28 /* click1.wav */; };
 		E28A854E2253EB0C00B4FE28 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28A854D2253EB0C00B4FE28 /* SoundPlayer.swift */; };
@@ -108,6 +111,9 @@
 		285F8559224E95E000A14ED3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		285F855B224E95E000A14ED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		285F855C224E95E000A14ED3 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		9F34A576226532F100CD6AFD /* MetronomeAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MetronomeAnimation; sourceTree = "<group>"; };
+		9F94A8A0226038CF00926346 /* MetronomeDesignThree.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetronomeDesignThree.xib; sourceTree = "<group>"; };
+		9F94A8A22260393100926346 /* MetronomeDesignThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeDesignThree.swift; sourceTree = "<group>"; };
 		E21799A122545651004E77D8 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		E28A854B2253E08A00B4FE28 /* click1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click1.wav; sourceTree = "<group>"; };
 		E28A854D2253EB0C00B4FE28 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 				280858AF225E8CB50047B7EF /* MetronomeDesignOne.xib */,
 				280858B1225EA9880047B7EF /* MetronomeDesignTwo.swift */,
 				280858B3225EA9930047B7EF /* MetronomeDesignTwo.xib */,
+				9F94A8A22260393100926346 /* MetronomeDesignThree.swift */,
+				9F94A8A0226038CF00926346 /* MetronomeDesignThree.xib */,
 			);
 			path = "Metronome Graphic Views";
 			sourceTree = "<group>";
@@ -184,6 +192,7 @@
 		285F8522224E95DB00A14ED3 /* HapticTouch */ = {
 			isa = PBXGroup;
 			children = (
+				9F34A576226532F100CD6AFD /* MetronomeAnimation */,
 				E28A854A2253D60800B4FE28 /* sound */,
 				280858AC225E8C250047B7EF /* Metronome Graphic Views */,
 				E21799A122545651004E77D8 /* Metronome.swift */,
@@ -222,9 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				285F8551224E95DF00A14ED3 /* InterfaceController.swift */,
-				285F8553224E95DF00A14ED3 /* ExtensionDelegate.swift */,
 				285F8555224E95DF00A14ED3 /* NotificationController.swift */,
 				285F8557224E95DF00A14ED3 /* ComplicationController.swift */,
+				285F8553224E95DF00A14ED3 /* ExtensionDelegate.swift */,
 				285F8559224E95E000A14ED3 /* Assets.xcassets */,
 				285F855B224E95E000A14ED3 /* Info.plist */,
 				285F855C224E95E000A14ED3 /* PushNotificationPayload.apns */,
@@ -367,7 +376,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F34A577226532F100CD6AFD /* MetronomeAnimation in Resources */,
 				E2CEFF50225BF4DB0053BA22 /* Localizable.strings in Resources */,
+				9F94A8A1226038CF00926346 /* MetronomeDesignThree.xib in Resources */,
 				280858B4225EA9930047B7EF /* MetronomeDesignTwo.xib in Resources */,
 				285F852E224E95DE00A14ED3 /* LaunchScreen.storyboard in Resources */,
 				E28A854C2253E08A00B4FE28 /* click1.wav in Resources */,
@@ -413,6 +424,7 @@
 				280858AE225E8C780047B7EF /* MetronomeDesignOne.swift in Sources */,
 				E28A854E2253EB0C00B4FE28 /* SoundPlayer.swift in Sources */,
 				285F8524224E95DB00A14ED3 /* AppDelegate.swift in Sources */,
+				9F94A8A32260393100926346 /* MetronomeDesignThree.swift in Sources */,
 				280858B2225EA9880047B7EF /* MetronomeDesignTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
