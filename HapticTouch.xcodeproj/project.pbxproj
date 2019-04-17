@@ -30,6 +30,7 @@
 		9F94A8A1226038CF00926346 /* MetronomeDesignThree.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F94A8A0226038CF00926346 /* MetronomeDesignThree.xib */; };
 		9F94A8A32260393100926346 /* MetronomeDesignThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94A8A22260393100926346 /* MetronomeDesignThree.swift */; };
 		E21799A222545651004E77D8 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21799A122545651004E77D8 /* Metronome.swift */; };
+		E26060E42266E43A00A3F36B /* DesignInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26060E32266E43A00A3F36B /* DesignInterface.swift */; };
 		E28A854C2253E08A00B4FE28 /* click1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28A854B2253E08A00B4FE28 /* click1.wav */; };
 		E28A854E2253EB0C00B4FE28 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28A854D2253EB0C00B4FE28 /* SoundPlayer.swift */; };
 		E2CEFF50225BF4DB0053BA22 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2CEFF52225BF4DB0053BA22 /* Localizable.strings */; };
@@ -115,6 +116,7 @@
 		9F94A8A0226038CF00926346 /* MetronomeDesignThree.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetronomeDesignThree.xib; sourceTree = "<group>"; };
 		9F94A8A22260393100926346 /* MetronomeDesignThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeDesignThree.swift; sourceTree = "<group>"; };
 		E21799A122545651004E77D8 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
+		E26060E32266E43A00A3F36B /* DesignInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignInterface.swift; sourceTree = "<group>"; };
 		E28A854B2253E08A00B4FE28 /* click1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click1.wav; sourceTree = "<group>"; };
 		E28A854D2253EB0C00B4FE28 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		E2CEFF46225BF2950053BA22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				280858B3225EA9930047B7EF /* MetronomeDesignTwo.xib */,
 				9F94A8A22260393100926346 /* MetronomeDesignThree.swift */,
 				9F94A8A0226038CF00926346 /* MetronomeDesignThree.xib */,
+				E26060E32266E43A00A3F36B /* DesignInterface.swift */,
 			);
 			path = "Metronome Graphic Views";
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				E21799A222545651004E77D8 /* Metronome.swift in Sources */,
 				285F8526224E95DB00A14ED3 /* MetronomeVC.swift in Sources */,
 				280858AE225E8C780047B7EF /* MetronomeDesignOne.swift in Sources */,
+				E26060E42266E43A00A3F36B /* DesignInterface.swift in Sources */,
 				E28A854E2253EB0C00B4FE28 /* SoundPlayer.swift in Sources */,
 				285F8524224E95DB00A14ED3 /* AppDelegate.swift in Sources */,
 				9F94A8A32260393100926346 /* MetronomeDesignThree.swift in Sources */,

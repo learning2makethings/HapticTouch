@@ -8,7 +8,25 @@
 
 import UIKit
 
-class MetronomeDesignOne: UIView {
+class MetronomeDesignOne: UIView, MetronomeDesignInterface {
+    func metronomeClicked() {
+        // just show number, do nothing
+    }
+    
+    func metronomeBpmChanged(to bpm: Int) {
+        bpmLabel.text = "\(bpm)"
+    }
+    
+    func metronomeToggled(isRunning: Bool) {
+        // isRunning is True, if metronome is turned on
+        // otherwise False
+        #warning("Implement metronome toggled")
+    }
+    
+    func onFocus(metronome: Metronome) {
+        bpmLabel.text = "\(metronome.bpm)"
+    }
+    
     @IBOutlet weak var bpmLabel: UILabel!
 
     override init(frame: CGRect) {

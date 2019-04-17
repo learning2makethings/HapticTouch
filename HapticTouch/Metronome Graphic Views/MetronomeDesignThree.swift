@@ -8,7 +8,25 @@
 
 import UIKit
 
-class MetronomeDesignThree: UIView {
+class MetronomeDesignThree: UIView, MetronomeDesignInterface {
+    func metronomeClicked() {
+        #warning("Implement metronome clicked")
+    }
+    
+    func metronomeBpmChanged(to bpm: Int) {
+        #warning("Implement bpm changed")
+    }
+    
+    func metronomeToggled(isRunning: Bool) {
+        // isRunning is True, if metronome is turned on
+        // otherwise False
+        #warning("Implement metronome toggled")
+    }
+    
+    func onFocus(metronome: Metronome) {
+        // this gets called when scrolling to page 3
+        #warning("Implement onFocus")
+    }
     
     @IBOutlet weak var metronomeImageView: UIImageView!
     

@@ -21,10 +21,14 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     // MARK: - Properties
     let startString = NSLocalizedString("startMetronome", comment: "Start metronome")
     let stopString = NSLocalizedString("stopMetronome", comment: "Stop metronome")
-    var metronomeDesigns = [UIView]()
+    
+    
+    var metronomeDesigns = [MetronomeDesignInterface]()
+    
     let metronome = Metronome(bpm: 60, supportsImpactGenerator: !UIDevice.current.modelName.starts(with: "iPhone8"))
     var metronomeRunningStatus = false {
         didSet {
+            metronomeDesigns[metronomeDesignsPageControl.currentPage].metronomeToggled(isRunning: metronome.isRunning())
             if metronome.isRunning() == true {
                 hapticFeedbackButton.setTitle(stopString, for: .normal)
             } else {
@@ -37,11 +41,17 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupMetronomeTickNotification()
-        setupMetronomeBpmNotification()
+        
+        // notifications that are sent to the views
+        NotificationCenter.default.addObserver(self, selector: #selector(metronomeTickNotification), name: Metronome.tickNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(metronomeBpmChangeNotification), name: Metronome.bpmChangeNotificaiton, object: nil)
+        
+        // setup pages
         metronomeDesignsScrollView.delegate = self
         metronomeGraphicsSetup()
         metronomeGraphicPageControlSetup()
+        
+        // setup metronome
         metronomeRunningStatus = false
         let value = Int(bpmSliderControl.value)
         metronome.setBPM(to: value)
@@ -59,15 +69,16 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         metronomeDesignsPageControl.numberOfPages = metronomeDesigns.count
         metronomeDesignsPageControl.currentPage = 0
     }
-
-    func setupMetronomeTickNotification() {
-        let metronomeTicked = Notification.Name("metronomeTicked")
-        NotificationCenter.default.addObserver(self, selector: #selector(flashView), name: metronomeTicked, object: nil)
+    
+    @objc func metronomeTickNotification() {
+        metronomeDesigns[metronomeDesignsPageControl.currentPage].metronomeClicked()
     }
-
-    func setupMetronomeBpmNotification() {
-        let notificationName = Notification.Name("metronomeBpm")
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBpmValue), name: notificationName, object: nil)
+    
+    @objc func metronomeBpmChangeNotification(_ notification: NSNotification) {
+        
+        let bpm = notification.userInfo!["bpm"] as! Int
+        metronomeDesigns[metronomeDesignsPageControl.currentPage].metronomeBpmChanged(to: bpm)
+        
     }
 
     // MARK: - Actions
@@ -98,28 +109,8 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         let currentMetronomeSpeed = Int(sender.value)
         metronome.setBPM(to: currentMetronomeSpeed)
     }
-
-    // MARK: - Functions (Better name for this mark?)
-    func timerActionFallback() {
-        AudioServicesPlaySystemSound(1520)
-    }
-
-    // Add a function here to update your Metronome Designs BPM label if applicable
-    func updateBpmLabel() {
-        if currentDesign() == .designOne {
-            updateFieldsInMetronomeDesignOne(bpm: "\(metronome.bpm)")
-        }
-    }
-
-    // Example of how to access properties of the currently selected Metronome Design in the scrollview
-    func updateFieldsInMetronomeDesignOne(bpm: String) {
-        if currentDesign() == .designOne {
-            let currentPageIndex = metronomeDesignsPageControl.currentPage
-            let currentlySelectedDesign = metronomeDesigns[currentPageIndex] as! MetronomeDesignOne
-            currentlySelectedDesign.bpmLabel.text = bpm
-        }
-    }
-
+    
+    // do we need this?
     func currentDesign() -> MetronomeDesign {
         let pageIndex = Int(round(metronomeDesignsScrollView.contentOffset.x / view.frame.width))
         let currentView = metronomeDesigns[pageIndex]
@@ -133,7 +124,7 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     }
 
     func setupScrollView(metronomeStyles: [UIView]) {
-        metronomeDesignsScrollView.contentSize = CGSize(width: scrollViewContainerView.frame.width * CGFloat(createMetronomeDesigns().count), height: 0)
+        metronomeDesignsScrollView.contentSize = CGSize(width: scrollViewContainerView.frame.width * CGFloat(metronomeStyles.count), height: 0)
         metronomeDesignsScrollView.isPagingEnabled = true
 
         for design in 0 ..< metronomeStyles.count {
@@ -144,28 +135,20 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
 
     // Load your design by changing to the relative nib name you created
     // Add it to the array returned below
-    func createMetronomeDesigns() -> [UIView] {
+    func createMetronomeDesigns() -> [MetronomeDesignInterface] {
         let viewOne = Bundle.main.loadNibNamed("MetronomeDesignOne", owner: self, options: nil)?.first as! MetronomeDesignOne
-        viewOne.backgroundColor = UIColor.red
+        viewOne.backgroundColor = UIColor.cyan
         print("XXX: \(viewOne.frame)")
+        
         let viewTwo = Bundle.main.loadNibNamed("MetronomeDesignTwo", owner: self, options: nil)?.first as! MetronomeDesignTwo
         viewTwo.flashingView.backgroundColor = .lightGray
+        
         let viewThree = Bundle.main.loadNibNamed("MetronomeDesignThree", owner: self, options: nil)?.first as! MetronomeDesignThree
         viewThree.backgroundColor = UIColor.gray
 
         return [viewOne, viewTwo, viewThree]
     }
 
-    @objc func flashView() {
-        if currentDesign() == .designTwo {
-            let currentView = metronomeDesigns[1] as! MetronomeDesignTwo
-            if currentView.flashingView.backgroundColor == UIColor.lightGray {
-                currentView.flashingView.backgroundColor = UIColor.black
-            } else {
-                currentView.flashingView.backgroundColor = UIColor.lightGray
-            }
-        }
-    }
     //MARK: - Metronome Animation
     @objc func metronomeImageView(){
         if currentDesign() == .designThree {
@@ -177,20 +160,15 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
             }
         }
     }
-    
-
-    @objc func updateBpmValue(_ notification: Notification) {
-        // Any views that need to update a bpm label should add it to this function
-        updateBpmLabel()
-    }
 
     // MARK: - ScrollView Delegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = Int(round(metronomeDesignsScrollView.contentOffset.x / view.frame.width))
-        metronomeDesignsPageControl.currentPage = pageIndex
-        // Check what Design is being scrolled too and update any needed info
-        if currentDesign() == .designOne {
-            updateBpmLabel()
+        print(pageIndex)
+        
+        if pageIndex != metronomeDesignsPageControl.currentPage {
+            metronomeDesignsPageControl.currentPage = pageIndex
+            metronomeDesigns[pageIndex].onFocus(metronome: metronome)
         }
     }
 }

@@ -8,7 +8,35 @@
 
 import UIKit
 
-class MetronomeDesignTwo: UIView {
+class MetronomeDesignTwo: UIView, MetronomeDesignInterface {
+    func metronomeClicked() {
+//        if flashingView.backgroundColor == UIColor.lightGray {
+//            flashingView.backgroundColor = UIColor.black
+//        } else {
+//            flashingView.backgroundColor = UIColor.lightGray
+//        }
+        
+        #warning("View not scrollable when animation is running")
+        flashingView.backgroundColor = UIColor.black
+        UIView.animate(withDuration: flashDuration, animations: {
+            self.flashingView.backgroundColor = UIColor.lightGray
+        })
+    }
+    
+    func metronomeBpmChanged(to bpm: Int) {
+        flashDuration = 60.0 / Double(bpm) / 2.0
+    }
+    
+    func metronomeToggled(isRunning: Bool) {
+        // isRunning is True, if metronome is turned on
+        // otherwise False
+    }
+    
+    func onFocus(metronome: Metronome) {
+        // nothing to do (yet)
+    }
+    
+    var flashDuration = 0.4
     @IBOutlet weak var flashingView: UIView!
 
     override init(frame: CGRect) {
