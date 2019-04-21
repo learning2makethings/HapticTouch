@@ -149,17 +149,6 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         return [viewOne, viewTwo, viewThree]
     }
 
-    //MARK: - Metronome Animation
-    @objc func metronomeImageView(){
-        if currentDesign() == .designThree {
-            let currentView = metronomeDesigns[2] as! MetronomeDesignThree
-            if currentView.metronomeImageView.isAnimating == false {
-                currentView.metronomeImageView.startAnimating()
-            }else {
-                currentView.metronomeImageView.stopAnimating()
-            }
-        }
-    }
 
     // MARK: - ScrollView Delegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
