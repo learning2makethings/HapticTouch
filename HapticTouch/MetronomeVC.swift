@@ -78,6 +78,7 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
         
         let bpm = notification.userInfo!["bpm"] as! Int
         metronomeDesigns[metronomeDesignsPageControl.currentPage].metronomeBpmChanged(to: bpm)
+        bpmSliderControl.setValue(Float(bpm), animated: true)
         
     }
 
@@ -88,20 +89,16 @@ class MetronomeVC: UIViewController, UIScrollViewDelegate {
     }
 
     @IBAction func minusButtonPressed(_ sender: Any) {
-        var value = Int(bpmSliderControl.value)
-        if value > 40 {
-            value -= 1
-            metronome.setBPM(to: value)
-            bpmSliderControl.setValue(Float(value), animated: true)
+        let newValue = bpmSliderControl.value - 1
+        if newValue > bpmSliderControl.minimumValue {
+            metronome.setBPM(to: Int(newValue))
         }
     }
     
     @IBAction func plusButtonPressed(_ sender: Any) {
-        var value = Int(bpmSliderControl.value)
-        if value < 218 {
-            value += 1
-            metronome.setBPM(to: value)
-            bpmSliderControl.setValue(Float(value), animated: true)
+        let newValue = bpmSliderControl.value + 1
+        if newValue < bpmSliderControl.maximumValue {
+            metronome.setBPM(to: Int(newValue))
         }
     }
     
