@@ -16,10 +16,13 @@ class MetronomeDesignTwo: UIView, MetronomeDesignInterface {
 //            flashingView.backgroundColor = UIColor.lightGray
 //        }
         
-        #warning("View not scrollable when animation is running")
         flashingView.backgroundColor = UIColor.black
-        UIView.animate(withDuration: flashDuration, animations: {
-            self.flashingView.backgroundColor = UIColor.lightGray
+        UIView.animate(
+            withDuration: flashDuration,
+            delay: 0.0,
+            options: .allowUserInteraction,
+            animations: {
+                self.flashingView.backgroundColor = .lightGray
         })
     }
     
